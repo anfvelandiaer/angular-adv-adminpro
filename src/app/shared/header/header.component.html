@@ -319,7 +319,7 @@
             aria-haspopup="true"
             aria-expanded="false"
             ><img
-              src="./assets/images/users/1.jpg"
+              [src]="usuario.imageUrl"
               alt="user"
               class="profile-pic"
           /></a>
@@ -328,13 +328,18 @@
               <li>
                 <div class="dw-user-box">
                   <div class="u-img">
-                    <img src="./assets/images/users/1.jpg" alt="user" />
+                    <img [src]="usuario.imageUrl" alt="user" />
                   </div>
                   <div class="u-text">
-                    <h4>Steave Jobs</h4>
-                    <p class="text-muted">varun@gmail.com</p>
-                    <a
-                      href="pages-profile.html"
+                    <h4>
+                      {{ usuario.nombre | slice:0:15 }}
+                      {{ (usuario.nombre.length > 15) ? '...': '' }}
+                    </h4>
+                    <p class="text-muted">
+                      {{ usuario.email | slice:0:20 }}
+                      {{ (usuario.email.length > 20) ? '...': '' }}
+                    </p>
+                    <a routerLink="./perfil"
                       class="btn btn-rounded btn-danger btn-sm"
                       >View Profile</a
                     >
@@ -343,7 +348,7 @@
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="#"><i class="ti-user"></i> My Profile</a>
+                <a routerLink="./perfil"><i class="ti-user"></i> My Profile</a>
               </li>
               <li>
                 <a href="#"><i class="ti-wallet"></i> My Balance</a>
