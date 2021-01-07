@@ -32,7 +32,6 @@ export class PerfilComponent implements OnInit {
   }
 
   actualziarPerfil() {
-    console.log(this.perfilForm.value);
     this.usuarioService
       .actualizarPerfil(this.perfilForm.value)
       .subscribe(() => {
@@ -60,7 +59,7 @@ export class PerfilComponent implements OnInit {
     }
   }
 
-  subirIamgen() {
+  subirImagen() {
     this.fileUploadService
       .actualizarFoto(this.imagenSubir, 'usuarios', this.usuario.uid)
       .then((img) => {
